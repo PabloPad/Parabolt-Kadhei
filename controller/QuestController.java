@@ -33,7 +33,10 @@ public class QuestController {
 	@PostMapping("/quests")
 	public ResponseEntity<?> createQuest (@RequestBody QuestRequest newQuest){
 		
-		Quest quest = questService.createQuest(new Quest(newQuest));
+		//Quest quest = questService.createQuest(new Quest(newQuest));
+		
+		Quest quest = questService.createQuest(newQuest);
+		
 		return new ResponseEntity<Quest>(quest,HttpStatus.OK);
 	}
 	

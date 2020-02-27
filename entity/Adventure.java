@@ -16,6 +16,10 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Adventure {
 
+	public Adventure(String adventureName) {
+		this.name=adventureName;
+	}
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int Id;
