@@ -31,28 +31,32 @@ public class QuestService {
 	//Adventure setting (on test)
 	public Quest createQuest(QuestRequest newQuest) {
 		
-		Adventure questAdventure = setQuestAdventure(newQuest);
-		Quest quest = new Quest(newQuest);
-		quest.setAdventure(questAdventure);
-		
+		Quest quest = addQuestToAdventure(newQuest);
 		return questRepository.save(quest);
 		
 	}
 
 	
 	
-	public Adventure setQuestAdventure(QuestRequest newQuest) {
+	public Quest addQuestToAdventure(QuestRequest newQuest) {
 		
 		Adventure questAdventure = new Adventure();
+		
+		
 		Optional<Adventure> fetchAdventure = adventureRepository.findByName(newQuest.getAdventure());
 		if(fetchAdventure.isPresent()) {
 			questAdventure = fetchAdventure.get();
 		}
 		else {
 			questAdventure = new Adventure(newQuest.getAdventure());
+			questAdventure.setStages(0);
 		}
 		
-		return questAdventure;
+		Quest quest = new Quest(newQuest);
+		questAdventure.setStages(questAdventure.getStages()+1);
+		quest.setStage(questAdventure.getStages());
+		quest.setAdventure(questAdventure);
+		return quest;
 	}
 	
 	

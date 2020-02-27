@@ -27,5 +27,8 @@ public class Adventure {
 	@Column
 	private String name;
 	
+	@Column
+	private int stages;
+	
 	
 }

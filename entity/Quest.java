@@ -33,10 +33,10 @@ public class Quest {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int Id;
 	
-	/*
+	
 	@Column
 	private int stage;
-	*/
+	
 	
 	@Column
 	private String title;
@@ -45,7 +45,7 @@ public class Quest {
 	private String body;
 	
 	//prototype implementation of relational mapping for quests - adventures
-	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	private Adventure adventure;	
 	
 }
