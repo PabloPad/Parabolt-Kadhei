@@ -1,5 +1,7 @@
 package com.parabolt.academyHackaton.back1.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,12 @@ public class AdventureService {
 	public Adventure createAdventure (Adventure adventure) {
 		
 		return adventureRepository.save(adventure);
+		
+	}
+	
+	public List<Adventure> getAllAdventures () {
+		
+		return adventureRepository.findAll();
 		
 	}
 	

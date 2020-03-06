@@ -12,7 +12,7 @@ public class CreateUserRequest {
 	private String email;
 	private String password;
 	private String name;
-	private String role; //TODO implement business logic if
+	private String role; //TODO implement validation
 	
 	
 }
